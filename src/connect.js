@@ -15,14 +15,13 @@ function getStore(ctx) {
     }
 }
 
-function Container(Component) {
-    return Component.implement({
+function connect({getters = {}} = {}) {
+    return (Component) => Component.implement({
         events: {
             $config(data = this.data) {
                 const store = getStore(this);
-                const getters = this.data.getters;
 
-                store.subscribe(function () {
+                store.subscribe(() => {
                     const state = store.getState();
                     Object.keys(getters).forEach(item => {
                         keypath.set(data, getters[item], 
@@ -42,4 +41,4 @@ function Container(Component) {
     })
 }
 
-module.exports = Container;
+module.exports = connect;

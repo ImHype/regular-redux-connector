@@ -1,5 +1,5 @@
 const {createStore} = Redux;
-const {Provider, Container} = RegularRedux;
+const {Provider, connect} = RegularRedux;
 
 
 const ActionTypes = {
@@ -37,7 +37,12 @@ const Header = Regular.extend({
     changeName() {
         this.dispatch(actions.changeName(this.$refs['ipt'].value));
     }
-}).use(Container)
+})
+const HeaderContainer = connect({
+    getters: {
+        'name': 'name'
+    }
+})(Header);
 
 const Demo = Regular.extend({
     template: `
@@ -51,7 +56,7 @@ const Demo = Regular.extend({
         this.data.store = store;
         this.supr();
     }
-}).component('Header', Header)
+}).component('Header', HeaderContainer)
 
 const demo = new Demo();
 

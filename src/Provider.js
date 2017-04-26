@@ -2,9 +2,9 @@ const Provider = Regular.extend({
     name: 'Provider',
     template: '{#include this.$body}',
     config({store} = this.data) {
-        if (store) {
-            this.store = store;
-        }
+       if (!store) {
+           throw new Error('Provider expected data.store to be store instance created by redux.createStore()')
+       }
     }
 })
 
