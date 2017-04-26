@@ -47,9 +47,7 @@ const HeaderContainer = connect({
 const Demo = Regular.extend({
     template: `
         <Provider store={store}>
-            <Header
-                getters={{"name": "name"}}
-            ></Header>
+            <Header></Header>
         </Provider>
     `,
     config() {
