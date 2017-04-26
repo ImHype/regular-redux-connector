@@ -1,1 +1,1 @@
-# regular-redux-with-mapstate
+# regular-redux-binding
