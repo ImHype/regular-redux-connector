@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "keypather": "^2.0.1"
+  },
+  "devDependencies": {
+    "webpack": "^2.4.1"
+  }
+}
