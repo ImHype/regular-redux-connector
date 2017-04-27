@@ -24,8 +24,8 @@ function connect({getters = {}} = {}) {
                 store.subscribe(() => {
                     const state = store.getState();
                     Object.keys(getters).forEach(item => {
-                        keypath.set(data, getters[item], 
-                            keypath.get(state, item)
+                        keypath.set(data, item, 
+                            keypath.get(state, getters[item])
                         )
                     });
                 });

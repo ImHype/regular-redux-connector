@@ -30,7 +30,7 @@ const store = createStore(reducer, {
 
 const Header = Regular.extend({
     template: `
-        你的名字，{name} <br/> <br/>
+        你的名字，{NAME} <br/> <br/>
         <input type="text" ref="ipt"/> <br/> <br/>
         <button on-click={this.changeName()}>点击按钮改名</button>    
     `,
@@ -40,14 +40,14 @@ const Header = Regular.extend({
 })
 const HeaderContainer = connect({
     getters: {
-        'name': 'name'
+        'NAME': 'name' 
     }
 })(Header);
 
 const Demo = Regular.extend({
     template: `
         <Provider store={store}>
-            <Header></Header>
+            <Header></Header> 
         </Provider>
     `,
     config() {
