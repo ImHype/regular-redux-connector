@@ -1,1 +1,1 @@
-# regular-redux-binding
+# regular-redux-connector
