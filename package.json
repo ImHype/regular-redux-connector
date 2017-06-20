@@ -1,8 +1,16 @@
 {
   "dependencies": {
+    "babel-core": "^6.25.0",
     "keypather": "^2.0.1"
   },
   "devDependencies": {
-    "webpack": "^2.4.1"
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "del": "^2.2.2",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-uglify": "^1.0.2",
+    "rollup-watch": "^3.2.2",
+    "chokidar": "^1.7.0"
   }
 }

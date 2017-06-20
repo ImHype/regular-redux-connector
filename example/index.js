@@ -31,7 +31,7 @@ const Header = Regular.extend({
         <button on-click={this.changeName()}>点击按钮改名</button>    
     `,
     changeName() {
-        this.dispatch(actions.changeName(this.$refs['ipt'].value));
+        this.$dispatch(actions.changeName(this.$refs['ipt'].value));
     }
 })
 const HeaderContainer = connect({
@@ -45,7 +45,7 @@ const HeaderContainer = connect({
 const Demo = Regular.extend({
     template: `
         <StoreProvider store={store}>
-            <Header isolate></Header> 
+            <Header></Header> 
         </StoreProvider>
     `,
     config() {

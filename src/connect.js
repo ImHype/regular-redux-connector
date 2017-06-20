@@ -1,5 +1,3 @@
-const keypath = require('keypather')();
-
 function getStore(ctx) {
     let parent = ctx.$parent;
     while(true) {
@@ -23,12 +21,14 @@ function connect({
         events: {
             $config(data = this.data) {
                 const store = getStore(this);
-
-                const unSubscribe = store.subscribe(() => {
+                const mapStateFn = () => {
                     const state = store.getState();
                     const mappedData = mapState.call(this, state);
                     mappedData && Object.assign(this.data, mappedData);
-                });
+                }
+                mapStateFn();
+
+                const unSubscribe = store.subscribe(mapStateFn);
                 
                 if (dispatch) {
                     this.$dispatch = store.dispatch;
@@ -40,4 +40,4 @@ function connect({
     });
 }
 
-module.exports = connect;
+export default connect;
