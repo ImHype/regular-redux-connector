@@ -15,7 +15,10 @@ function getStore(ctx) {
     }
 }
 
-function connect({getters = {}} = {}) {
+function connect({
+    mapState = () => ({}),
+    dispatch
+} = {}) {
     return (Component) => Component.implement({
         events: {
             $config(data = this.data) {
@@ -23,24 +26,18 @@ function connect({getters = {}} = {}) {
 
                 const unSubscribe = store.subscribe(() => {
                     const state = store.getState();
-                    Object.keys(getters).forEach(item => {
-                        keypath.set(data, item, 
-                            keypath.get(state, getters[item])
-                        )
-                    });
-                });
-
-                store.dispatch({
-                    type: 'CONTAINER_INIT'
+                    const mappedData = mapState.call(this, state);
+                    mappedData && Object.assign(this.data, mappedData);
                 });
                 
-                this.subscribe = store.subscribe;
-                this.dispatch = store.dispatch;
+                if (dispatch) {
+                    this.$dispatch = store.dispatch;
+                }
                 
                 this.$on('destroy', unSubscribe);
             } 
         }
-    })
+    });
 }
 
 module.exports = connect;

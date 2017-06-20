@@ -1,2 +1,2 @@
 exports.connect = require('./connect');
-exports.Provider = require('./Provider');
+exports.StoreProvider = require('./StoreProvider');

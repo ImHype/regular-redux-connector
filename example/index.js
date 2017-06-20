@@ -1,5 +1,5 @@
 const {createStore} = Redux;
-const {Provider, connect} = RegularRedux;
+const {StoreProvider, connect} = RegularRedux;
 
 
 const ActionTypes = {
@@ -24,34 +24,37 @@ const reducer = (prevState, action) => {
     return prevState;
 }
 
-const store = createStore(reducer, {
-    'name': 'junyu'
-});
-
 const Header = Regular.extend({
     template: `
         你的名字，{NAME} <br/> <br/>
         <input type="text" ref="ipt"/> <br/> <br/>
         <button on-click={this.changeName()}>点击按钮改名</button>    
     `,
+    config: function(){
+        debugger
+    },
     changeName() {
         this.dispatch(actions.changeName(this.$refs['ipt'].value));
     }
 })
 const HeaderContainer = connect({
-    getters: {
-        'NAME': 'name' 
+    mapState(state) {
+        return {
+            'NAME': state.name 
+        }
     }
 })(Header);
 
 const Demo = Regular.extend({
     template: `
-        <Provider store={store}>
-            <Header></Header> 
-        </Provider>
+        <StoreProvider store={store}>
+            <Header isolate></Header> 
+        </StoreProvider>
     `,
     config() {
-        this.data.store = store;
+        this.data.store = createStore(reducer, {
+            'name': 'junyu'
+        });;
         this.supr();
     }
 }).component('Header', HeaderContainer)
