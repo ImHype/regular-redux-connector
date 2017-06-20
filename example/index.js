@@ -30,9 +30,6 @@ const Header = Regular.extend({
         <input type="text" ref="ipt"/> <br/> <br/>
         <button on-click={this.changeName()}>点击按钮改名</button>    
     `,
-    config: function(){
-        debugger
-    },
     changeName() {
         this.dispatch(actions.changeName(this.$refs['ipt'].value));
     }
