@@ -1,19 +1,19 @@
-class DoneFlag {
-    constructor() {
-        this.reset();
-    }
+function DoneFlag () {
+    this.reset();
+}
 
-    done() {
-        this.doneFlag = true;
-    }
-    
-    isDone() {
-        return this.doneFlag === true;
-    }
+let proto = DoneFlag.prototype;
 
-    reset() {
-        this.doneFlag = false;
-    }
+proto.done = function () {
+    this.doneFlag = true;
+}
+
+proto.isDone = function () {
+    return this.doneFlag === true;
+}
+
+proto.done = function () {
+    this.doneFlag = false;
 }
 
 export default () => new DoneFlag();
