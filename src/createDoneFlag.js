@@ -4,15 +4,15 @@ class DoneFlag {
     }
 
     done() {
-        this.isDone = true;
+        this.doneFlag = true;
     }
     
     isDone() {
-        return this.isDone === true;
+        return this.doneFlag === true;
     }
 
     reset() {
-        this.isDone = false;
+        this.doneFlag = false;
     }
 }
 
