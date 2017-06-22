@@ -12,7 +12,7 @@ proto.isDone = function () {
     return this.doneFlag === true;
 }
 
-proto.done = function () {
+proto.reset = function () {
     this.doneFlag = false;
 }
 
