@@ -1,4 +1,4 @@
-import DoneFlag from './helpers/DoneFlag';
+import createDoneFlag from './createDoneFlag';
 
 const StoreProvider = Regular.extend({
     name: 'StoreProvider',
@@ -8,15 +8,15 @@ const StoreProvider = Regular.extend({
            throw new Error('Provider expected data.store to be store instance created by redux.createStore()')
        }
 
-       let doneFlag = new DoneFlag();
+       let flag = createDoneFlag();
        
        store.subscribe(() => {
-           doneFlag.done();
+           flag.done();
 
            setTimeout(() => {
-               if (doneFlag.isDone()) {
+               if (flag.isDone()) {
                    this.$update();
-                   doneFlag.reset();
+                   flag.reset();
                }
            });
        });

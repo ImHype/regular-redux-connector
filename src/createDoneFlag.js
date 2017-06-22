@@ -16,4 +16,4 @@ class DoneFlag {
     }
 }
 
-export default DoneFlag;
+export default () => new DoneFlag();
