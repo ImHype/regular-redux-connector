@@ -19,7 +19,7 @@
   },
   "files": [
     "dist/regularRedux.js",
-    "dist/regularRedux.map"
+    "dist/regularRedux.js.map"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
