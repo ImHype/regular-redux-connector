@@ -13,7 +13,7 @@
   "name": "regular-redux-connector",
   "description": "",
   "version": "0.1.0",
-  "main": "build.js",
+  "main": "./dist/regularRedux",
   "directories": {
     "example": "example"
   },
