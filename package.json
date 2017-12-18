@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/ImHype/regular-redux-connector/issues"
   },
-  "homepage": "https://github.com/ImHype/regular-redux-connector#readme"
+  "homepage": "https://github.com/ImHype/regular-redux-connector#readme",
+  "peerDependencies": {
+    "regularjs": "^0.4.3"
+  }
 }

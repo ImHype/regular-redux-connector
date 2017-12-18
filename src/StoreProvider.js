@@ -1,5 +1,7 @@
 import createDoneFlag from './createDoneFlag';
 
+const R = typeof Regular === 'undefined' ? (require && require('regularjs')) : Regular;
+
 const StoreProvider = Regular.extend({
     name: 'StoreProvider',
     template: '{#include this.$body}',
